@@ -1,0 +1,52 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ========================
+# Virtual Environments
+# ========================
+venv/
+.venv/
+env/
+
+# ========================
+# IDE / Editor
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ========================
+# OS Generated
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# ML Model Files
+# (Large binary files — download separately, see README)
+# ========================
+*.tflite
+*.pb
+*.task
+
+# ========================
+# Logs & Misc
+# ========================
+*.log
+*.mp4
+*.avi
+*.mov
