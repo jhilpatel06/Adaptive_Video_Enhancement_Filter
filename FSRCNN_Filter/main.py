@@ -12,7 +12,7 @@ class FilterPipeline:
         Args:
             filter_func: The filter function from Filters class to apply.
         """
-        self.detector = FaceDetector(model_path="blaze_face_full_range.tflite", min_detection_confidence=0.4)
+        self.detector = FaceDetector(model_path="blaze_face_full_range.tflite", min_detection_confidence=0.1)
         self.enhancer = FaceEnhancer(model_path="FSRCNN_x4.pb", scale=4)
         self.current_filter = filter_func
         self.area_threshold = 0.05  # 5% threshold for face area vs frame area

@@ -135,11 +135,22 @@ class Filters:
     @staticmethod
     def apply_pencil_sketch(frame, face_id=0):
         """
-        High quality pencil sketch effect.
+        Pencil sketch using Canny edges with soft shading blend.
         """
-        gray, color = cv2.pencilSketch(frame, sigma_s=60, sigma_r=0.07, shade_factor=0.05)
-        # Returns grayscale sketch, convert to BGR so it plays nice with the pipeline
-        return cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        smooth = cv2.bilateralFilter(gray, 9, 75, 75)
+        edges = cv2.Canny(smooth, 40, 120)
+        edges = cv2.GaussianBlur(edges, (3, 3), 0)
+        edges_inv = cv2.bitwise_not(edges)
+
+        # Shading: classic pencil shading via dodge blend
+        blurred = cv2.GaussianBlur(gray, (19, 19), 0)
+        inverted = cv2.bitwise_not(blurred)
+        shading = cv2.divide(gray, inverted, scale=256)
+
+        # Blend edges into shading for a pencil look
+        sketch = cv2.multiply(shading, edges_inv, scale=1 / 255.0)
+        return cv2.cvtColor(sketch, cv2.COLOR_GRAY2BGR)
 
     @staticmethod
     def apply_snapchat_prototype(frame, face_id=0):
