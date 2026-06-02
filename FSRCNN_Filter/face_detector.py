@@ -69,7 +69,7 @@ class FaceDetector:
 if __name__ == "__main__":
     cap = cv2.VideoCapture(0)
     # Ensure blaze_face_short_range.tflite is in the same directory
-    detector = FaceDetector(min_detection_confidence=0.6)
+    detector = FaceDetector(min_detection_confidence=0.1)
     
     while cap.isOpened():
         success, frame = cap.read()

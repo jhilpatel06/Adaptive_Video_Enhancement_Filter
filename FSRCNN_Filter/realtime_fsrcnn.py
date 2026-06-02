@@ -26,8 +26,8 @@ def main():
     print("Initializing FSRCNN Model...")
     # Initialize Super Resolution
     sr = dnn_superres.DnnSuperResImpl_create()
-    model_path = "FSRCNN_x3.pb"
-    scale = 3
+    model_path = "FSRCNN_x4.pb"
+    scale = 4
     
     try:
         sr.readModel(model_path)

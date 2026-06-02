@@ -2,7 +2,7 @@ import cv2
 from cv2 import dnn_superres
 
 class FaceEnhancer:
-    def __init__(self, model_path="FSRCNN_x3.pb", scale=3):
+    def __init__(self, model_path="FSRCNN_x4.pb", scale=4):
         """
         Initializes the FSRCNN Super Resolution model.
         """

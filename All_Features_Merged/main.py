@@ -20,6 +20,7 @@ def switch_filter(pipeline, filter_name):
     )
 
 
+
 def main():
     print("Initializing Unified Video Processing Pipeline...")
 
@@ -45,7 +46,7 @@ def main():
     # 3. Set default filter
     switch_filter(pipeline, "snapchat")
 
-    # 4. Start Webcam Loop
+    # 4. Start Webcam Loop using the ThreadedCamera
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         print("Error: Could not open webcam.")
